@@ -6,9 +6,9 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.8.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.learn</groupId>
+	<groupId>com.cognizant</groupId>
 	<artifactId>ProjectManager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ProjectManager</name>
@@ -39,7 +39,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency><dependency>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 			<exclusions>
@@ -53,7 +54,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
-		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+			<version>1.4.194</version>
+		</dependency>
 	</dependencies>
 
 	<build>

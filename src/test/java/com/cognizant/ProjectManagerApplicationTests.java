@@ -1,4 +1,4 @@
-package com.learn;
+package com.cognizant;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
