@@ -3,7 +3,7 @@ package com.cognizant.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cognizant.model.ParentTask;
+import com.cognizant.entity.ParentTask;
 
 /**
  * This is an interface which extends JpaRepository and

@@ -9,7 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.cognizant.model.ParentTask;
+import com.cognizant.entity.ParentTask;
 
 /**
  * Prerequisite data is inserted ProjectManagerApplication.run()
