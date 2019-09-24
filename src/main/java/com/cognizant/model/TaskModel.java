@@ -18,6 +18,7 @@ public class TaskModel {
 	private LocalDate startDate;
 	private LocalDate endDate;
 
+	
 	public Long getTaskId() {
 		return taskId;
 	}

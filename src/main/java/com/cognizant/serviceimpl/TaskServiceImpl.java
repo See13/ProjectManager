@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cognizant.entity.ParentTask;
 import com.cognizant.entity.Task;
@@ -14,6 +15,7 @@ import com.cognizant.repository.ParentTaskRepository;
 import com.cognizant.repository.TaskRepository;
 import com.cognizant.service.TaskService;
 
+@Service
 public class TaskServiceImpl implements TaskService {
 	@Autowired
 	TaskRepository taskRepository;

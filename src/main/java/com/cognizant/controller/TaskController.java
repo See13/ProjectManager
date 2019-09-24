@@ -32,7 +32,7 @@ public class TaskController {
 
 	@PostMapping("/addTask")
 	public ResponseEntity<TaskModel> createTask(@RequestBody TaskModel taskModel) {
-		logger.info("Enter into createTask method in controller.......");
+		logger.info("Enter into createTask method in controller......."+taskModel.getTaskName());
 
 		return new ResponseEntity<TaskModel>(this.taskService.addTask(taskModel), HttpStatus.CREATED);
 	}
@@ -68,13 +68,13 @@ public class TaskController {
 		return new ResponseEntity<TaskModel>(task, HttpStatus.OK);
 	}
 
-	@PutMapping("/task/{taskid}")
+	@PutMapping("/task/{taskId}")
 	public TaskModel updateTask(@RequestBody TaskModel task, @PathVariable("taskId") long taskId) {
 		logger.info("Enter into updateTask method in controller.......");
 		return taskService.updateTask(task, taskId);
 	}
 
-	@PutMapping("/task/{taskid}")
+	@PutMapping("/endTask/{taskId}")
 	public TaskModel endTask(@PathVariable("taskId") long taskId) {
 		logger.info("Enter into endTask method in controller.......");
 		return taskService.endTask(taskId);
