@@ -86,13 +86,14 @@ public class TaskServiceImpl implements TaskService {
 		task.get().setEndDate(LocalDate.now());
 
 		TaskModel taskModel = getModelFromTask(task.get());
+		System.out.println(taskModel.getEndDate()+";;;;;;;;;;;;;;;;;;");
 		return taskModel;
 	}
 
 	Task getTaskFromModel(TaskModel model) {
 		Task task = new Task();
 
-		task.setTaskId(model.getTaskId());
+		//task.setTaskId(model.getTaskId());
 		task.setParent(model.getParent());
 		task.setProject(model.getProject());
 		task.setUser(model.getUser());

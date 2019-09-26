@@ -77,7 +77,8 @@ public class TaskController {
 	@PutMapping("/endTask/{taskId}")
 	public TaskModel endTask(@PathVariable("taskId") long taskId) {
 		logger.info("Enter into endTask method in controller.......");
-		return taskService.endTask(taskId);
+		TaskModel task= taskService.endTask(taskId);
+		 return taskService.updateTask(task, taskId);
 	}
 
 }

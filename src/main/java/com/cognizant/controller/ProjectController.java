@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +32,7 @@ public class ProjectController {
 
 	@PostMapping("/addProject")
 	public ResponseEntity<Project> createProject(@RequestBody Project project) {
-		logger.info("Enter into createProject method in controller.......");
+		logger.info("Enter into createProject method in controller......."+project.getProjectId());
 
 		return new ResponseEntity<Project>(projectService.addProject(project), HttpStatus.CREATED);
 	}
@@ -39,7 +40,12 @@ public class ProjectController {
 	@GetMapping("/projects")
 	public ResponseEntity<List<Project>> getProjects() {
 		logger.info("Enter into getProjects method in controller.......");
+		List<Project> projects = this.projectService.getProjects();
 
+		System.out.println("Project task size :" + projects.size());
+		if (projects == null || projects.isEmpty()) {
+			return new ResponseEntity<List<Project>>(projects, HttpStatus.NO_CONTENT);
+		}
 		return new ResponseEntity<List<Project>>(projectService.getProjects(), HttpStatus.OK);
 	}
 
@@ -47,5 +53,17 @@ public class ProjectController {
 	Set<Task> getTasksByProject(@PathVariable("projectId") Long projectId) {
 		logger.info("Enter into getTasksByProject method in controller.......");
 		return projectService.getTasksByProject(projectId);
+	}
+	@DeleteMapping(value="/suspend/{projectId}")
+			public ResponseEntity<Long> suspendProject(@PathVariable("projectId") Long projectId){
+		try {
+			logger.info("Enter into getProjects method in controller.......");
+			projectService.suspendProject(projectId);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<Long>(projectId, HttpStatus.OK);
+			
 	}
 }

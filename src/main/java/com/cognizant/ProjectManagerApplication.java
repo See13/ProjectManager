@@ -28,8 +28,8 @@ public class ProjectManagerApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		logger.info("Enter into run method in TaskManagerApplication.......");
 
-		parentTaskRepository.save(new ParentTask(1, "ParentTask1"));
-		parentTaskRepository.save(new ParentTask(2, "ParentTask2"));
+		parentTaskRepository.save(new ParentTask(111, "ParentTask111"));
+		//parentTaskRepository.save(new ParentTask(2, "ParentTask2"));
 		logger.info("Exit from run method in TaskManagerApplication.......");
 	}
 

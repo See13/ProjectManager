@@ -34,7 +34,7 @@ public class Task {
 	@JsonIgnore
 	private ParentTask parent;
 
-	@ManyToOne(fetch = FetchType.EAGER, optional = false,cascade=CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "projectId")
 	@JsonBackReference

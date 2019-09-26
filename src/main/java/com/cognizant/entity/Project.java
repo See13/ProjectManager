@@ -20,6 +20,7 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -43,11 +44,11 @@ public class Project {
 	@Column(name = "priority")
 	private int priority;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true, cascade = CascadeType.MERGE)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "userId")
 	private User user;
-
+	
 	@Transient
 	private String status;
 

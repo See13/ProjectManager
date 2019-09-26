@@ -15,5 +15,4 @@ import com.cognizant.entity.ParentTask;
  */
 @Repository
 public interface ParentTaskRepository extends JpaRepository<ParentTask, Long>{
-	 public ParentTask findById(long parentTaskId);
 }

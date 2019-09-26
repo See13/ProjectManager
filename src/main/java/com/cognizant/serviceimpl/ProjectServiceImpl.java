@@ -24,6 +24,7 @@ public class ProjectServiceImpl implements ProjectService{
 	
 	@Override
 	public Project addProject(Project project) {
+		//System.out.println(project.getUser().getEmployeeId()+"-----------------------------"+project.getProjectName());
 		projectRepository.save(project);
 		User user = project.getUser();
 		userRepository.save(user);
@@ -42,5 +43,11 @@ public class ProjectServiceImpl implements ProjectService{
 		tasks = project.getTaskList();
 		return tasks;
 	}
-
+	@Override
+	public void suspendProject(Long projectId) {
+		Project project = new Project();
+		project.setStatus("1");
+		this.projectRepository.deleteById(projectId);
+		
+	}
 }
